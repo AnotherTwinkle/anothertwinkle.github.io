@@ -27,7 +27,7 @@ class WritingUtils(clicore.Module):
 			if -1 in [start, end]:
 				break
 			latex = md[start:end+1]
-			link = f'![math](https://latex.codecogs.com/png.image?{urllib.parse.quote(latex[1:-1])})'
+			link = f'![{latex[1:-1]}](https://latex.codecogs.com/svg.image?{urllib.parse.quote(latex[1:-1])})'
 			md = md.replace(latex, link)
 
 		return md
@@ -61,6 +61,8 @@ class WritingUtils(clicore.Module):
 		filename = ctx.flags.filename
 		date = ctx.flags.date
 		title = ctx.flags.title
+
+		text= self.parse_latex_in_md(md)
 		text = self.convert_to_styled_html(md)
 
 		curdir = __file__.split(os.path.sep)[:-1]
