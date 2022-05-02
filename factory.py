@@ -3,6 +3,7 @@ import clicore # https://github.com/AnotherTwinkle/clicore
 import requests
 import os
 import time
+import urllib
 
 class WritingUtils(clicore.Module):
 	def convert_to_styled_html(self, md):
@@ -19,9 +20,21 @@ class WritingUtils(clicore.Module):
 
 		return response.text
 
+	def parse_latex_in_md(self, md):
+		while True:
+			start = md.find('$')
+			end = md.find('$', start + 1)
+			if -1 in [start, end]:
+				break
+			latex = md[start:end+1]
+			link = f'![math](https://latex.codecogs.com/png.image?{urllib.parse.quote(latex[1:-1])})'
+			md = md.replace(latex, link)
+
+		return md
+
 	@clicore.command(name = 'md')
 	def md(self, ctx):
-		pass
+		pass	
 
 	@clicore.add_flag(name = 'output', default = f'lab/produce/out{int(time.time())}.html')
 	@md.command(name = 'parse')
@@ -29,6 +42,7 @@ class WritingUtils(clicore.Module):
 		with open(md_path, 'r', encoding= 'utf-8') as file:
 			md = file.read()
 
+		md = self.parse_latex_in_md(md)
 		html = self.convert_to_styled_html(md)
 		if not os.path.exists('lab/produce'): os.makedirs('lab/produce');
 
@@ -39,7 +53,7 @@ class WritingUtils(clicore.Module):
 	@clicore.add_flag(name = 'date', default = None)
 	@clicore.add_flag(name = 'title', default = 'Untitled')
 	@md.command(name='publish')
-	def publis_md(self, ctx, md_path):
+	def publish_md(self, ctx, md_path):
 		"""Automatically handle all the indexing stuff, and publish a markdown as html"""
 		with open(md_path, 'r') as file:
 			md = file.read()
@@ -85,4 +99,6 @@ def main():
 	parser.run()
 
 if __name__ == '__main__':
+	#print(WritingUtils().parse_latex_in_md("Hello, $\dpi{110}&space;\bg_white&space;F=P(1+\frac{i}{n})^{nt})$"))
 	main()
+	
