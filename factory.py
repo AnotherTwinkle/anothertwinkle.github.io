@@ -55,7 +55,7 @@ class WritingUtils(clicore.Module):
 	@md.command(name='publish')
 	def publish_md(self, ctx, md_path):
 		"""Automatically handle all the indexing stuff, and publish a markdown as html"""
-		with open(md_path, 'r') as file:
+		with open(md_path, 'r', encoding= 'utf-8') as file:
 			md = file.read()
 
 		filename = ctx.flags.filename
@@ -75,7 +75,7 @@ class WritingUtils(clicore.Module):
 		if os.path.exists(os.path.join(path, filename)):
 			raise ValueError(f"A file with the name {filename} already exists.")
 
-		with open(os.path.join(path, filename), 'w') as f:
+		with open(os.path.join(path, filename), 'w', encoding= 'utf-8') as f:
 			f.write(text)
 
 		# We are done writing, now let's make an entry in the index table.
