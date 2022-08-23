@@ -9,7 +9,7 @@ class WritingUtils(clicore.Module):
 	def convert_to_styled_html(self, md):
 		url = 'https://dillinger.io/factory/fetch_html'
 		payload = {
-			"name" : "target.md",
+			"name" : "Article",
 			"unmd" : md,
 			"formatting" : True,
 			"preview" : False
