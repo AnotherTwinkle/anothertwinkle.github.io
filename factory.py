@@ -63,8 +63,8 @@ class WritingUtils(clicore.Module):
 		date = ctx.flags.date
 		title = ctx.flags.title
 
-		text= self.parse_latex_in_md(md)
-		text = self.convert_to_styled_html(md, title)
+		text = self.parse_latex_in_md(md)
+		text = self.convert_to_styled_html(text, title)
 
 		curdir = __file__.split(os.path.sep)[:-1]
 		directory = date.split('/')[::-1] if date else 'undated'
