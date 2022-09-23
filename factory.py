@@ -6,10 +6,10 @@ import time
 import urllib
 
 class WritingUtils(clicore.Module):
-	def convert_to_styled_html(self, md):
+	def convert_to_styled_html(self, md, name = None):
 		url = 'https://dillinger.io/factory/fetch_html'
 		payload = {
-			"name" : "Article",
+			"name" : name or "Article",
 			"unmd" : md,
 			"formatting" : True,
 			"preview" : False
@@ -101,6 +101,5 @@ def main():
 	parser.run()
 
 if __name__ == '__main__':
-	#print(WritingUtils().parse_latex_in_md("Hello, $\dpi{110}&space;\bg_white&space;F=P(1+\frac{i}{n})^{nt})$"))
 	main()
 	
