@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Site content management toolset thingy~"""
 import clicore # https://github.com/AnotherTwinkle/clicore
 import requests
@@ -63,7 +64,7 @@ class WritingUtils(clicore.Module):
 		title = ctx.flags.title
 
 		text= self.parse_latex_in_md(md)
-		text = self.convert_to_styled_html(md)
+		text = self.convert_to_styled_html(md, title)
 
 		curdir = __file__.split(os.path.sep)[:-1]
 		directory = date.split('/')[::-1] if date else 'undated'
@@ -93,7 +94,7 @@ class WritingUtils(clicore.Module):
 		with open(index, 'w', encoding = 'utf-8') as file:
 			file.write(html)
 
-		return print('👍')
+		return print('Done!')
 
 def main():
 	parser = clicore.Parser()
