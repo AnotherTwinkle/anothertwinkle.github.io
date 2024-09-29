@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{listings, color, hyperref}
+\usepackage{graphicx, amsmath, amssymb, amsthm}
+
+\newcommand{\linl}[1]{\lstinline{#1}}
+
+% For all the code stuff
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=c,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{Assignment 1}
+\author{Chotokhato Programming Camp 2024}
+
+\begin{document}
+\maketitle
+
+Please submit your codes in the following google form - \url{https://forms.gle/ym1wsMX4Zor13V3x9}.
+
+\section*{Task 1} 
+Take two integers as input. Print the larger one of them.
+
+\section*{Task 2}
+Take two integers as input. Print their difference. (Difference must be a positive integer).
+
+\section*{Task 3}
+Take number of days as input. Print the total number of seconds in those number of days. For example there are \verb|432000| seconds in \verb|5| days.
+
+\section*{Task 4}
+Swap the value of two variables without using another variable. (Hint: Math!)
+
+\section*{Task 5}
+Take \textbf{three} variables as input. Now, print these three variables from the smallest to largest.
+
+
+\end{document}
+x = M, y = N
+x = x + y; M + N;
+y = x - y; M + N - N;
+x = x - y

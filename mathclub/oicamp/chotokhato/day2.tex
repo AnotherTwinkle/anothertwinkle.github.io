@@ -1,0 +1,68 @@
+\documentclass{article}
+
+\usepackage{listings, color, hyperref}
+\usepackage{graphicx, amsmath, amssymb, amsthm}
+
+\newcommand{\linl}[1]{\lstinline{#1}}
+
+% For all the code stuff
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=c,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{Assignment 2}
+\author{Chotokhato Programming Camp 2024}
+
+\begin{document}
+\maketitle
+
+Please submit your codes in the following google form - \url{https://forms.gle/bGfFdVE4EhMPnMGb8}.
+
+
+\section*{Task 1 - A mathematician's dream}
+Given two \verb|float|s $a$ and $b$, Compute $(a+b)^2$ and $(a-b)^2$.
+
+\section*{Task 2 - In our prime}
+You are given a positive integer $x$ that is \textbf{not greater than 10} (i.e $x \le 10$). Determine if $x$ is a prime or not.
+
+A prime number is a number that is only divisible by itself and $1$. $1$ is not a prime number.
+
+\section*{Task 3 - Leaping through years} 
+A \textit{leap year} is a year that is \textbf{divisible by 4}, but \textbf{not divisible by 100}. However, years that are \textbf{divisible by 400} are considered to be leap years.
+
+Given an year as input, print if it is a leap year or not.
+
+\section*{Task 4 - Second by second}
+You have given an amount in seconds. You have to determine this amount in \verb|a hours b minutes c seconds| format. Example input/output is given below-
+
+\begin{lstlisting}
+input : 3600
+output : 1 hours 0 minutes 0 seconds
+
+input : 2443
+output : 0 hours 40 minutes 43 seconds
+
+input : 25
+output : 0 hours 0 minutes 25 seconds
+\end{lstlisting}
+
+\end{document}
+
+2 3 5 7 11 13
