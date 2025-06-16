@@ -1,2 +1,4 @@
-[Fijaj](/fijaj.pdf)
-[Fuad](/fuad.pdf)
+[Admit (Fijaj)](/fijaj.pdf)
+
+
+[Admit (Fuad)](/fuad.pdf)
